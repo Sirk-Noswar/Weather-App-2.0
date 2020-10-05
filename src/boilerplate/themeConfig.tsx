@@ -1,4 +1,4 @@
-import React from react
+import React from 'react'
 import { ThemeProvider, createGlobalStyle } from 'styled-components'
 
 const appTheme = {}
