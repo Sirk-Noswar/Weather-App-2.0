@@ -7,6 +7,7 @@
     "@types/node": "^14.11.2",
     "@types/react": "^16.9.50",
     "@types/react-dom": "^16.9.8",
+    "@types/react-redux": "^7.1.9",
     "history": "^5.0.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
@@ -25,7 +26,9 @@
     "eject": "react-scripts eject",
     "lint": "eslint ./ --ignore-path .gitignore",
     "lint:fix": "npm run lint -- --fix",
-    "format": "prettier --write \"{,!(node_modules)/**/}*.tsx\""
+    "format": "prettier --write \"{,!(node_modules)/**/}*.tsx\"",
+    "storybook": "start-storybook -p 6006 -s public",
+    "build-storybook": "build-storybook -s public"
   },
   "eslintConfig": {
     "extends": "@imaginary-cloud/react"
@@ -44,8 +47,16 @@
     ]
   },
   "devDependencies": {
+    "@babel/core": "^7.11.6",
     "@imaginary-cloud/eslint-config-react": "^1.0.1",
     "@imaginary-cloud/prettier-config": "^1.0.0",
+    "@storybook/addon-actions": "^6.0.25",
+    "@storybook/addon-essentials": "^6.0.25",
+    "@storybook/addon-links": "^6.0.25",
+    "@storybook/node-logger": "^6.0.25",
+    "@storybook/preset-create-react-app": "^3.1.4",
+    "@storybook/react": "^6.0.25",
+    "babel-loader": "^8.1.0",
     "eslint-config-airbnb": "^18.1.0",
     "eslint-config-prettier": "^6.10.1",
     "eslint-plugin-import": "^2.20.2",
@@ -53,6 +64,7 @@
     "eslint-plugin-prettier": "^3.1.3",
     "eslint-plugin-react": "^7.19.0",
     "eslint-plugin-react-hooks": "^2.5.1",
-    "prettier": "^2.1.2"
+    "prettier": "^2.1.2",
+    "react-is": "^16.13.1"
   }
 }

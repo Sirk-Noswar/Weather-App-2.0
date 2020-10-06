@@ -5,7 +5,7 @@ import { createStore, applyMiddleware, compose } from 'redux'
 import rootReducer from './reducers'
 
 // builder logger enhancer
-const logger = (store) => (next) => (action) => {
+const logger = (store : any) => (next : any) => (action : any) => {
   console.group(action.type)
   console.info('dispatching', action)
   let result = next(action)
