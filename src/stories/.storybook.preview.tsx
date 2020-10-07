@@ -1,9 +1,9 @@
-import AppTheme from "../boilerplate/themeConfig";
+import AppTheme from '../boilerplate/themeConfig'
 
 export const decorators = [
-    Story => (
-        <AppTheme>
-            <Story />
-        </AppTheme>
-    )
+  (Story) => (
+    <AppTheme>
+      <Story />
+    </AppTheme>
+  ),
 ]
