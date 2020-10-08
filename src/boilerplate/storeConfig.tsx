@@ -1,11 +1,28 @@
 import React from 'react'
 import reduxThunk from 'redux-thunk'
 import { Provider } from 'react-redux'
-import { createStore, applyMiddleware, compose } from 'redux'
-import rootReducer from './reducers'
+import {
+  createStore,
+  applyMiddleware,
+  compose,
+  Store,
+  Dispatch,
+  Action,
+} from 'redux'
+import rootReducer from './redux/reducers'
+
+// interfaces
+declare global {
+  interface Window {
+    __REDUX_DEVTOOLS_EXTENSION_COMPOSE__?: typeof compose
+  }
+}
+interface ExpectedProps {
+  children: React.ReactNode
+}
 
 // builder logger enhancer
-const logger = (store: any) => (next: any) => (action: any) => {
+const logger: any = (store: Store) => (next: Dispatch) => (action: Action) => {
   console.group(action.type)
   console.info('dispatching', action)
   let result = next(action)
@@ -24,4 +41,6 @@ const store = createStore(
   composeEnhancers(applyMiddleware(...middleWares)),
 )
 
-export default (props) => <Provider store={store}>{props.children}</Provider>
+export default (props: ExpectedProps) => (
+  <Provider store={store}>{props.children}</Provider>
+)
