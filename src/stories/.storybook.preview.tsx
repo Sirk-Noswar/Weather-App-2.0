@@ -1,9 +1,10 @@
+import React from 'react'
 import AppTheme from '../boilerplate/themeConfig'
 
 export const decorators = [
-  (Story) => (
+  (Story: React.ElementType) => (
     <AppTheme>
       <Story />
     </AppTheme>
-  ),
+  )
 ]

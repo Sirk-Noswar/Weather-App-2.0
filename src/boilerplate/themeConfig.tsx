@@ -3,10 +3,6 @@ import { useSelector } from 'react-redux'
 import { ThemeProvider, createGlobalStyle } from 'styled-components'
 import { AppState } from './redux/reducers/index'
 
-const appTheme = {
-  background: '#FFFFFF',
-}
-
 const GlobalStyles = createGlobalStyle`
     @font-face {
         font-family: OpenSans-Bold;
@@ -66,6 +62,31 @@ const GlobalStyles = createGlobalStyle`
     }
 `
 
+const colorThemes = {
+  cold: {
+    main: '#153243',
+    highlight: '#76949F',
+    gradient: `linear-gradient(355deg, #76949F 0%, #153243 100%)`,
+  },
+  cool: {
+    main: '#343E3D',
+    highlight: '#CDD7D6',
+    gradient: `linear-gradient(355deg, #CDD7D6 0%, #343E3D 100%)`,
+  },
+  warm: {
+    main: '#F46036',
+    highlight: '#B0D0D3',
+    gradient: `linear-gradient(355deg, #B0D0D3 0%, #F46036 100%)`,
+  },
+  hot: {
+    main: '#757761',
+    highlight: '#F4E76E',
+    gradient: `linear-gradient(355deg, #F4E76E 0%, #757761 100%)`,
+  },
+}
+
+export type ThemeType = typeof colorThemes.cold
+
 interface ExpectedProps {
   children: React.ReactNode
 }
@@ -75,38 +96,32 @@ export default (props: ExpectedProps) => {
     (state: AppState) => state.forecast.currentForecast?.temp,
   )
   const [tempTheme, setTempTheme] = useState({
-    main: '#153243',
-    highlight: '#76949F',
+    ...colorThemes.cold,
   })
 
   // determine which theme colors to use based on temperature
   if (currentTemp !== null && currentTemp !== undefined) {
     if (currentTemp <= 0)
       setTempTheme({
-        main: '#153243',
-        highlight: '#76949F',
+        ...colorThemes.cold,
       })
     else if (currentTemp >= 2 && currentTemp < 10)
       setTempTheme({
-        main: '#343E3D',
-        highlight: '#CDD7D6',
+        ...colorThemes.cool,
       })
     else if (currentTemp >= 10 && currentTemp < 21)
       setTempTheme({
-        main: '#F46036',
-        highlight: '#B0D0D3',
+        ...colorThemes.warm,
       })
     else
       setTempTheme({
-        main: '#757761',
-        highlight: '#F4E76E',
+        ...colorThemes.hot,
       })
   }
 
   return (
     <ThemeProvider
       theme={{
-        ...appTheme,
         ...tempTheme,
       }}
     >
