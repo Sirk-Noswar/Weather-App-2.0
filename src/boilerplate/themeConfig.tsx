@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
 import { ThemeProvider, createGlobalStyle } from 'styled-components'
-import { AppState } from './redux/reducers/index'
 
 const GlobalStyles = createGlobalStyle`
     @font-face {
@@ -92,9 +91,10 @@ interface ExpectedProps {
 }
 
 export default (props: ExpectedProps) => {
-  const currentTemp = useSelector(
+  /*const currentTemp = useSelector(
     (state: AppState) => state.forecast.currentForecast?.temp,
-  )
+  )*/
+  const currentTemp = 0; //todo: fix this
   const [tempTheme, setTempTheme] = useState({
     ...colorThemes.cold,
   })
