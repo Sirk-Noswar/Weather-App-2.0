@@ -1,24 +1,28 @@
-import {
-  createAsyncThunk,
-  createSlice,
-  PayloadAction
-} from "@reduxjs/toolkit";
+import {createSlice, PayloadAction} from "@reduxjs/toolkit";
 import {Settings} from "../../models";
 import {fetchUserSettings} from "../thunks";
+import {BackgroundConfig, Location, TempUnits, TimeUnits} from "../../models/shared";
 
 const initialState: Settings = {
-  location: null,
-  timeFormat: 'civilian',
-  tempUnits: 'F',
-  background: 'static',
+  tempUnits: TempUnits.F,
+  timeFormat: TimeUnits.military
 }
 
 export const settingsSlice = createSlice({
   name: 'settings',
   initialState,
   reducers: {
-    setTempUnit: (state: Settings, action: PayloadAction<TempUnitEnum>) => {
+    setTempUnits: (state: Settings, action: PayloadAction<TempUnits>) => {
       state.tempUnits = action.payload
+    },
+    setTimeUnits: (state: Settings, action: PayloadAction<TimeUnits>) => {
+      state.timeFormat = action.payload
+    },
+    setLocation: (state: Settings, action: PayloadAction<Location>) => {
+      state.location = action.payload
+    },
+    setBackground: (state: Settings, action: PayloadAction<BackgroundConfig>) => {
+      state.background = action.payload
     }
   },
   extraReducers: (builder) => {
@@ -31,4 +35,12 @@ export const settingsSlice = createSlice({
         )
   }
 })
+
+export const {
+  setTempUnits,
+  setTimeUnits,
+  setLocation,
+  setBackground
+} = settingsSlice.actions
+export const settingsReducer = settingsSlice.reducer
 

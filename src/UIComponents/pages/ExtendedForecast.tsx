@@ -1,3 +1,3 @@
 import React from 'react'
 
-export default (props) => <div>Extended Forecast</div>
+export default (props: any) => <div>Extended Forecast</div>

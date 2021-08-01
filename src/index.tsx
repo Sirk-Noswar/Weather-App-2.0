@@ -4,7 +4,7 @@ import ReduxStore from './boilerplate/storeConfig'
 import Routes from './boilerplate/routerConfig'
 import AppTheme from './boilerplate/themeConfig'
 
-ReactDOM.render(
+/*ReactDOM.render(
   <React.StrictMode>
     <ReduxStore>
       <AppTheme>
@@ -13,4 +13,13 @@ ReactDOM.render(
     </ReduxStore>
   </React.StrictMode>,
   document.getElementById('root'),
+)*/
+
+ReactDOM.render(
+    <React.StrictMode>
+        <ReduxStore>
+            <Routes />
+        </ReduxStore>
+    </React.StrictMode>,
+    document.getElementById('root'),
 )

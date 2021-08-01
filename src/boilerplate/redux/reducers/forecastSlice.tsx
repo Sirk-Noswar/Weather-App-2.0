@@ -1,11 +1,12 @@
-import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query";
+import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import { Location } from "../../models/shared";
 
-export const forecastApi = createApi({
+const forecastApi = createApi({
   reducerPath: 'forecastApi',
   baseQuery: fetchBaseQuery({ baseUrl: 'https://api.openweathermap.org/data/2.5' }),
   endpoints: (builder) => ({
-    getOneCallData: builder.query({
-      query: (lat: string, long: string) => `onecall?lat=${lat}&lon=${long}&appid=${process.env.REACT_APP_WEATHER_API_KEY}`
+    getOneCallData: builder.query<any, Pick<Location, 'long' | 'lat'>>({
+      query: (location) => `onecall?lat=${location.lat}&lon=${location.long}&appid=${process.env.REACT_APP_WEATHER_API_KEY}`
     })
   })
 })
@@ -13,4 +14,4 @@ export const forecastApi = createApi({
 export const {
   useGetOneCallDataQuery
 } = forecastApi
-
+export { forecastApi }

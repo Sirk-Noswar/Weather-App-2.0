@@ -1,1 +1,4 @@
-export type TimeUnits = '24hour' | '12hour'
+export enum TimeUnits {
+    military = '24Hour',
+    civilian = '12Hour'
+}

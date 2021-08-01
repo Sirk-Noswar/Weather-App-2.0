@@ -1,3 +1,3 @@
 import React from 'react'
 
-export default (props) => <div>Settings</div>
+export default (props: any) => <div>Settings</div>
