@@ -1,8 +1,8 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import ReduxStore from './boilerplate/storeConfig'
-import Routes from './boilerplate/routerConfig'
-import AppTheme from './boilerplate/themeConfig'
+import ReduxStore from './boilerplate/store-config'
+import Routes from './boilerplate/router-config'
+import AppTheme from './boilerplate/theme-config'
 
 /*ReactDOM.render(
   <React.StrictMode>

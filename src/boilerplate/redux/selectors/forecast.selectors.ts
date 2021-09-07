@@ -1,4 +1,4 @@
-import {forecastApi} from "../reducers";
+import {forecastApi} from "../slices";
 import {createSelector} from "@reduxjs/toolkit";
 
 export const selectForecast = (state: any) => state[forecastApi.reducerPath]

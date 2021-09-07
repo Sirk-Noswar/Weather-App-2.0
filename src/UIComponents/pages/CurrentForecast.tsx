@@ -1,5 +1,5 @@
 import React from 'react'
-import {useGetOneCallDataQuery} from "../../boilerplate/redux/reducers";
+import {useGetOneCallDataQuery} from "../../boilerplate/redux/slices";
 
 export default (props: any) => {
     const queryResult = useGetOneCallDataQuery()

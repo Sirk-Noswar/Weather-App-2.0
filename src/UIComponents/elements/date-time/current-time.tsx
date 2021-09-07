@@ -12,11 +12,20 @@ const DateText = Styled.div`
     text-transform: uppercase;
 `
 export const CurrentTime = (props: {
-    time: string,
-    date: string
-}) => (
-    <div>
-        <TimerText>{props.time}</TimerText>
-        <DateText>{props.date}</DateText>
-    </div>
-)
+    hour: number,
+    minute: number,
+    dayName: string,
+    dayOfMonth: number,
+    monthName: string,
+    year: number
+}) => {
+    const handleLeadingZero = (value: number): string => 
+        value < 10 ? `0${value.toString()}` : value.toString();
+
+    return (
+        <div>
+            <TimerText>{handleLeadingZero(props.hour)}:{handleLeadingZero(props.minute)}</TimerText>
+            <DateText>{props.dayName}, {props.dayOfMonth} {props.monthName} {props.year}</DateText>
+        </div>
+    );
+}

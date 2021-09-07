@@ -1,6 +1,6 @@
 import React from 'react'
 import Styled, { css } from 'styled-components'
-import { ThemeType } from '../../../boilerplate/themeConfig'
+import { ThemeType } from '../../../boilerplate/theme-config'
 
 export const ThemeGradient = Styled.div(
     (props: ThemeType) => css`

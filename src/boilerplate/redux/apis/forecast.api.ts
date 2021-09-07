@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { Location } from "../../models/shared";
+import { Location } from "../../models";
 
 const forecastApi = createApi({
   reducerPath: 'forecastApi',
