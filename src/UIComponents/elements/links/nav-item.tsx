@@ -12,11 +12,11 @@ const NavItemContainer = Styled.div`
     align-items: 'center';
 `
 export const NavItem = (props: {
-    icon: React.ReactNode,
-    navText: string
+    navText: string,
+    children: React.ReactNode
 }) => (
     <NavItemContainer>
-        {props.icon}
+        {props.children}
         <UppercaseText>{props.navText}</UppercaseText>
     </NavItemContainer>
 )

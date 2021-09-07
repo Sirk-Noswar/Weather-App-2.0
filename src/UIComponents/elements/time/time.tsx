@@ -1,6 +1,15 @@
 import React from 'react'
 import Styled from 'styled-components'
 
+export interface TimeProps {
+    hour: number,
+    minute: number,
+    dayName: string,
+    dayOfMonth: number,
+    monthName: string,
+    year: number
+}
+
 const TimerText = Styled.div`
     font-family: OpenSans-Light;
     font-size: 10em;
@@ -11,14 +20,7 @@ const DateText = Styled.div`
     font-size: 2em;
     text-transform: uppercase;
 `
-export const CurrentTime = (props: {
-    hour: number,
-    minute: number,
-    dayName: string,
-    dayOfMonth: number,
-    monthName: string,
-    year: number
-}) => {
+export const Time = (props: TimeProps) => {
     const handleLeadingZero = (value: number): string => 
         value < 10 ? `0${value.toString()}` : value.toString();
 

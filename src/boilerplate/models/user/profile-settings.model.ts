@@ -3,7 +3,7 @@ import {
     TempUnits,
     TimeUnits,
     BackgroundConfig
-} from '../shared'
+} from '../'
 
 export interface Settings {
     timeFormat: TimeUnits

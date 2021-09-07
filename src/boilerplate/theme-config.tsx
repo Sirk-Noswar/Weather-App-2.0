@@ -1,53 +1,64 @@
 import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
 import { ThemeProvider, createGlobalStyle } from 'styled-components'
+import openBold from "./assets/fonts/OpenSans-Bold.ttf";
+import openBoldItalic from "./assets/fonts/OpenSans-BoldItalic.ttf";
+import openExtraBold from "./assets/fonts/OpenSans-ExtraBold.ttf";
+import openExtraBoldItalic from "./assets/fonts/OpenSans-ExtraBoldItalic.ttf";
+import openItalic from "./assets/fonts/OpenSans-Italic.ttf";
+import openLight from "./assets/fonts/OpenSans-Light.ttf";
+import openLightItalic from "./assets/fonts/OpenSans-LightItalic.ttf";
+import openSemiBold from "./assets/fonts/OpenSans-SemiBold.ttf";
+import openSemiBoldItalic from "./assets/fonts/OpenSans-SemiBoldItalic.ttf";
+import openRegular from "./assets/fonts/OpenSans-Regular.ttf";
 
 const GlobalStyles = createGlobalStyle`
-    @font-face {
-        font-family: OpenSans-Bold;
-        src: url(./assets/OpenSans-Bold.ttf)
-    }
-    @font-face {
-        font-family: OpenSans-BoldItalic;
-        src: url(./assets/OpenSans-BoldItalic.ttf)
-    }
-    @font-face {
-        font-family: OpenSans-ExtraBold;
-        src: url(./assets/OpenSans-ExtraBold.ttf)
-    }
-    @font-face {
-        font-family: OpenSans-ExtraBoldItalic;
-        src: url(./assets/OpenSans-ExtraBoldItalic.ttf)
-    }
-    @font-face {
-        font-family: OpenSans-Italic;
-        src: url(./assets/OpenSans-Italic.ttf)
-    }
-    @font-face {
-        font-family: OpenSans-Light;
-        src: url(./assets/OpenSans-Light.ttf)
-    }
-    @font-face {
-        font-family: OpenSans-LightItalic;
-        src: url(./assets/OpenSans-LightItalic.ttf)
-    }
-    @font-face {
-        font-family: OpenSans-Regular;
-        src: url(./assets/OpenSans-Regular.ttf)
-    }
-    @font-face {
-        font-family: OpenSans-SemiBold;
-        src: url(./assets/OpenSans-SemiBold.ttf)
-    }
-    @font-face {
-        font-family: OpenSans-SemiBoldItalic;
-        src: url(./assets/OpenSans-SemiBoldItalic.ttf)
-    }
+  @font-face {
+    font-family: OpenSans-Bold;
+    src: url(${openBold});
+  }
+  @font-face {
+    font-family: OpenSans-BoldItalic;
+    src: url(${openBoldItalic});
+  }
+  @font-face {
+    font-family: OpenSans-ExtraBold;
+    src: url(${openExtraBold});
+  }
+  @font-face {
+    font-family: OpenSans-ExtraBoldItalic;
+    src: url(${openExtraBoldItalic});
+  }
+  @font-face {
+    font-family: OpenSans-Italic;
+    src: url(${openItalic});
+  }
+  @font-face {
+    font-family: OpenSans-Light;
+    src: url(${openLight});
+  }
+  @font-face {
+    font-family: OpenSans-LightItalic;
+    src: url(${openLightItalic});
+  }
+  @font-face {
+    font-family: OpenSans-Regular;
+    src: url(${openRegular});
+  }
+  @font-face {
+    font-family: OpenSans-SemiBold;
+    src: url(${openSemiBold});
+  }
+  @font-face {
+    font-family: OpenSans-SemiBoldItalic;
+    src: url(${openSemiBoldItalic});
+  }
     
     body {
         padding: 0;
         margin: 0;
         font-size: 16pt;
+        font-family: OpenSans-Regular;
     }
     
     h1 {
@@ -100,7 +111,7 @@ export default (props: ExpectedProps) => {
   })
 
   // determine which theme colors to use based on temperature
-  if (currentTemp !== null && currentTemp !== undefined) {
+  /*if (currentTemp !== null && currentTemp !== undefined) {
     if (currentTemp <= 0)
       setTempTheme({
         ...colorThemes.cold,
@@ -117,7 +128,7 @@ export default (props: ExpectedProps) => {
       setTempTheme({
         ...colorThemes.hot,
       })
-  }
+  }*/
 
   return (
     <ThemeProvider
